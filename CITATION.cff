@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+title: "PHASMIDA"
+message: "If you use this software, please cite it using the metadata from this file."
+type: software
+
+authors:
+  - family-names: "Bermejo Jimeno"
+    given-names: "Alejandro"
+
+year: 2026
+license: MIT
+
+repository-code: "https://github.com/ABJ-C0d3Hu6/PHASMIDA"
+
+keywords:
+  - maritime cybersecurity
+  - OT security
+  - NMEA
+  - IDS
+  - SIEM
+  - digital twin
+  - Docker
+  - Python
