@@ -6,7 +6,7 @@
 [![Docker](https://img.shields.io/badge/Docker-1D63ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com)
 [![Python](https://img.shields.io/badge/Python-FFD343?style=for-the-badge&logo=python&logoColor=blue)](https://www.python.org/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-FF6C6C?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io)
-[![Kali Linux](https://img.shields.io/badge/Kali_Linux-6A0DAD?style=for-the-badge&logo=kalilinux&logoColor=black)](https://www.kali.org)
+[![Kali Linux](https://img.shields.io/badge/Kali_Linux-6A0DAD?style=for-the-badge&logo=kalilinux&logoColor=white)](https://www.kali.org)
 [![NMEA](https://img.shields.io/badge/NMEA-0078D4?style=for-the-badge&logo=nmea&logoColor=white)](https://www.nmea.org)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-In_Development-blue?style=for-the-badge)
