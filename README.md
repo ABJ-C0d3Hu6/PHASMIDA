@@ -26,7 +26,7 @@ providing real-time visualization and tools for monitoring GNSS/GPS data.
 - 📈 Data visualization
 - 💾 Data logging
 - 🔍 Packet analysis
-- ⚡ Cross-platform Python application
+- 🐍 Cross-platform Python application
 
 ---
 
