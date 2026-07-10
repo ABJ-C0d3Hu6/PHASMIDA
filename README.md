@@ -1,6 +1,6 @@
 # PHASMIDA
 <p align="center">
-  <img src="PHASMIDA_logo.png" width="500">
+  <img src="PHASMIDA_logo.png" width="1000">
 </p>
 
 ![Python](https://img.shields.io/badge/Python-FFD343?style=for-the-badge&logo=python&logoColor=blue)
