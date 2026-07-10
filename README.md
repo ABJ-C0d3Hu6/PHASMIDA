@@ -3,11 +3,12 @@
   <img src="PHASMIDA_logo.png" width="1000">
 </p>
 
-![Python](https://img.shields.io/badge/Python-FFD343?style=for-the-badge&logo=python&logoColor=blue)
 ![Docker](https://img.shields.io/badge/Docker-1D63ED?style=for-the-badge&logo=docker&logoColor=white)
-![Kali Linux](https://img.shields.io/badge/Kali_Linux-6A0DAD?style=for-the-badge&logo=kalilinux&logoColor=white)
-![NMEA](https://img.shields.io/badge/NMEA-0078D4?style=for-the-badge&logo=nmea&logoColor=white)
+![Python](https://img.shields.io/badge/Python-FFD343?style=for-the-badge&logo=python&logoColor=blue)
 ![Streamlit](https://img.shields.io/badge/Streamlit-FF6C6C?style=for-the-badge&logo=streamlit&logoColor=white)
+![Kali Linux](https://img.shields.io/badge/Kali_Linux-6A0DAD?style=for-the-badge&logo=kalilinux&logoColor=white)
+![SQL Lite](https://img.shields.io/badge/SQL_Lite-90D4F4?style=for-the-badge&logo=sql-lite&logoColor=white)
+![NMEA](https://img.shields.io/badge/NMEA-0078D4?style=for-the-badge&logo=nmea&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-In_Development-blue?style=for-the-badge)
 
