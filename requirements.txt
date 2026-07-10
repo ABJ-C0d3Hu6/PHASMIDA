@@ -1,0 +1,46 @@
+# ==========================================================
+# PHASMIDA
+# OT Cybersecurity Laboratory for Maritime Navigation Systems
+# System Requirements
+# ==========================================================
+
+# Dashboard
+streamlit>=1.40.0
+plotly>=5.24.0
+pandas>=2.2.0
+
+# Numerical computing
+numpy>=2.0.0
+
+# Data visualization
+matplotlib>=3.9.0
+
+# PDF report generation
+reportlab>=4.2.0
+
+# Network communication
+scapy>=2.6.0
+
+# Cryptography
+cryptography>=43.0.0
+
+# Configuration files
+PyYAML>=6.0.2
+
+# Image processing (dashboard/logos)
+Pillow>=11.0.0
+
+# HTTP utilities (future OneNet extensions)
+requests>=2.32.0
+
+# JSON schema validation (optional)
+jsonschema>=4.23.0
+
+# Logging and colored terminal output
+colorama>=0.4.6
+
+# Date and time utilities
+python-dateutil>=2.9.0
+
+# Scientific utilities
+scipy>=1.14.0
