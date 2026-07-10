@@ -5,7 +5,7 @@
 
 ![Python](https://img.shields.io/badge/Python-FFD343?style=for-the-badge&logo=python&logoColor=blue)
 ![Kali Linux](https://img.shields.io/badge/Kali_Linux-6A0DAD?style=for-the-badge&logo=kalilinux&logoColor=white)
-![NMEA](https://img.shields.io/badge/NMEA-0078D4?style=for-the-badge&logoColor=white)
+![NMEA](https://img.shields.io/badge/NMEA-0078D4?style=for-the-badge&logo=nmea&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-In_Development-blue?style=for-the-badge)
 
