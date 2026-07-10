@@ -103,4 +103,4 @@ This project is licensed under the MIT License.
 
 **Alejandro Bermejo Jimeno**
 
-Master's Thesis Project
+MSc in Telecommunications Engineering Thesis - Universidad de Alicante (UA)
