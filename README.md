@@ -91,7 +91,7 @@ The complete Master's Thesis documentation can be found in the `docs` folder.
 
 ---
 
-## 📄 License
+## ⚖️ License
 
 This project is licensed under the MIT License.
 
