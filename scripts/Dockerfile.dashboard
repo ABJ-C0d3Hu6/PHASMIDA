@@ -1,0 +1,15 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+RUN pip install --no-cache-dir \
+    streamlit \
+    pandas \
+    altair \
+    plotly
+
+COPY dashboard_nmea.py /app/dashboard_nmea.py
+
+EXPOSE 8501
+
+CMD ["streamlit", "run", "dashboard_nmea.py", "--server.address=0.0.0.0", "--server.port=8501", "--server.headless=true"]

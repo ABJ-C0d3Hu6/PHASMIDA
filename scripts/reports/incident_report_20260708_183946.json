@@ -1,0 +1,91 @@
+{
+    "report_type": "PHASMIDA Incident Report",
+    "generated_at_utc": "2026-07-08T18:39:46.034093Z",
+    "total_events": 8,
+    "severity_summary": {
+        "CRITICAL": 2,
+        "HIGH": 4,
+        "MEDIUM": 2
+    },
+    "most_critical_event": {
+        "timestamp": "2026-07-08T17:58:31.339837+00:00",
+        "alert_type": "INVALID_HMAC",
+        "severity": "CRITICAL",
+        "source_ip": "172.25.0.99",
+        "message": "HMAC inválido. Posible manipulación o suplantación.",
+        "raw_sentence": "$GPRMC,163000,A,5100.000,N,00100.000,W,10.0,90.0,080726,,,A*00"
+    },
+    "events": [
+        {
+            "timestamp": "2026-07-08T17:58:31.333294+00:00",
+            "alert_type": "UNAUTHORIZED_SOURCE",
+            "severity": "HIGH",
+            "source_ip": "172.25.0.99",
+            "message": "Trama recibida desde una fuente no autorizada",
+            "raw_sentence": "$GPRMC,163000,A,5100.000,N,00100.000,W,10.0,90.0,080726,,,A*00"
+        },
+        {
+            "timestamp": "2026-07-08T17:58:31.339837+00:00",
+            "alert_type": "INVALID_HMAC",
+            "severity": "CRITICAL",
+            "source_ip": "172.25.0.99",
+            "message": "HMAC inválido. Posible manipulación o suplantación.",
+            "raw_sentence": "$GPRMC,163000,A,5100.000,N,00100.000,W,10.0,90.0,080726,,,A*00"
+        },
+        {
+            "timestamp": "2026-07-08T17:58:31.342071+00:00",
+            "alert_type": "INVALID_TIMESTAMP",
+            "severity": "HIGH",
+            "source_ip": "172.25.0.99",
+            "message": "Timestamp fuera de ventana temporal: 5311.3 s",
+            "raw_sentence": "$GPRMC,163000,A,5100.000,N,00100.000,W,10.0,90.0,080726,,,A*00"
+        },
+        {
+            "timestamp": "2026-07-08T17:58:31.343919+00:00",
+            "alert_type": "INVALID_CHECKSUM",
+            "severity": "MEDIUM",
+            "source_ip": "172.25.0.99",
+            "message": "Checksum inválido recibido=00, calculado=60",
+            "raw_sentence": "$GPRMC,163000,A,5100.000,N,00100.000,W,10.0,90.0,080726,,,A*00"
+        },
+        {
+            "timestamp": "2026-07-08T17:59:08.093442+00:00",
+            "alert_type": "UNAUTHORIZED_SOURCE",
+            "severity": "HIGH",
+            "source_ip": "172.25.0.99",
+            "message": "Trama recibida desde una fuente no autorizada",
+            "raw_sentence": "$GPRMC,163000,A,5100.000,N,00100.000,W,10.0,90.0,080726,,,A*00"
+        },
+        {
+            "timestamp": "2026-07-08T17:59:08.096331+00:00",
+            "alert_type": "INVALID_HMAC",
+            "severity": "CRITICAL",
+            "source_ip": "172.25.0.99",
+            "message": "HMAC inválido. Posible manipulación o suplantación.",
+            "raw_sentence": "$GPRMC,163000,A,5100.000,N,00100.000,W,10.0,90.0,080726,,,A*00"
+        },
+        {
+            "timestamp": "2026-07-08T17:59:08.098637+00:00",
+            "alert_type": "INVALID_TIMESTAMP",
+            "severity": "HIGH",
+            "source_ip": "172.25.0.99",
+            "message": "Timestamp fuera de ventana temporal: 5348.1 s",
+            "raw_sentence": "$GPRMC,163000,A,5100.000,N,00100.000,W,10.0,90.0,080726,,,A*00"
+        },
+        {
+            "timestamp": "2026-07-08T17:59:08.100935+00:00",
+            "alert_type": "INVALID_CHECKSUM",
+            "severity": "MEDIUM",
+            "source_ip": "172.25.0.99",
+            "message": "Checksum inválido recibido=00, calculado=60",
+            "raw_sentence": "$GPRMC,163000,A,5100.000,N,00100.000,W,10.0,90.0,080726,,,A*00"
+        }
+    ],
+    "recommendations": [
+        "Verificar el origen del tráfico no autorizado.",
+        "Mantener el filtrado IPTables activo.",
+        "Revisar la clave compartida HMAC-SHA256.",
+        "Analizar las tramas NMEA asociadas al incidente.",
+        "Conservar este informe como evidencia del experimento."
+    ]
+}

@@ -1,0 +1,243 @@
+services:
+
+  # ==========================================================
+  # FIREWALL / ROUTER ENTRE ZONAS
+  # ==========================================================
+  phasmida_firewall:
+    build:
+      context: ./docker/firewall
+      dockerfile: Dockerfile
+
+    container_name: phasmida_firewall
+
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+
+    sysctls:
+      net.ipv4.ip_forward: "1"
+
+    networks:
+      ot_net:
+        ipv4_address: 10.50.10.254
+      dmz_net:
+        ipv4_address: 10.50.20.254
+      redteam_net:
+        ipv4_address: 10.50.30.254
+
+    restart: unless-stopped
+
+
+  # ==========================================================
+  # IDS PHASMIDA
+  # ==========================================================
+  phasmida_ids:
+    build:
+      context: ./ids
+      dockerfile: Dockerfile
+
+    container_name: phasmida_ids
+
+    networks:
+      ot_net:
+        ipv4_address: 10.50.10.30
+
+    expose:
+      - "10110/udp"
+
+    volumes:
+      - ./events:/app/events
+      - ./reports:/app/reports
+
+    depends_on:
+      - phasmida_firewall
+
+    restart: unless-stopped
+
+
+  # ==========================================================
+  # PHASMIDA CORE
+  # NMEA State Manager y distribución del estado de navegación
+  # ==========================================================
+  phasmida_core:
+    build:
+      context: .
+      dockerfile: core/Dockerfile
+
+    container_name: phasmida_core
+
+    networks:
+      ot_net:
+        ipv4_address: 10.50.10.20
+
+    expose:
+      - "10120/udp"
+
+    environment:
+      PHASMIDA_STATE_FILE: /app/events/nmea_state.json
+      PHASMIDA_IDS_HOST: phasmida_ids
+      PHASMIDA_IDS_PORT: "10110"
+
+    volumes:
+      - ./events:/app/events
+
+    depends_on:
+      - phasmida_firewall
+      - phasmida_ids
+
+    restart: unless-stopped
+
+
+  # ==========================================================
+  # GENERADOR DE SENTENCIAS NMEA
+  # ==========================================================
+  nmea_generator:
+    build:
+      context: ./gps_node
+      dockerfile: Dockerfile
+
+    container_name: nmea_generator
+
+    networks:
+      ot_net:
+        ipv4_address: 10.50.10.10
+
+    environment:
+      PHASMIDA_CORE_HOST: phasmida_core
+      PHASMIDA_CORE_PORT: "10120"
+
+    depends_on:
+      - phasmida_core
+
+    restart: unless-stopped
+
+
+  # ==========================================================
+  # DASHBOARD PHASMIDA
+  # ==========================================================
+  phasmida_dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile.dashboard
+
+    container_name: phasmida_dashboard
+
+    networks:
+      ot_net:
+        ipv4_address: 10.50.10.40
+
+    expose:
+      - "8501"
+
+    volumes:
+      - ./events:/app/events:ro
+      - ./reports:/app/reports:ro
+
+    depends_on:
+      - phasmida_ids
+      - phasmida_core
+      - phasmida_firewall
+
+    restart: unless-stopped
+
+
+  # ==========================================================
+  # NGINX REVERSE PROXY EN IDMZ
+  # ==========================================================
+  phasmida_nginx:
+    build:
+      context: ./docker/nginx
+      dockerfile: Dockerfile
+
+    container_name: phasmida_nginx
+
+    cap_add:
+      - NET_ADMIN
+
+    networks:
+      dmz_net:
+        ipv4_address: 10.50.20.10
+
+    ports:
+      - "8080:80"
+
+    depends_on:
+      - phasmida_firewall
+      - phasmida_dashboard
+
+    restart: unless-stopped
+
+
+  # ==========================================================
+  # NODO ATACANTE / RED TEAM
+  # ==========================================================
+  attacker_node:
+    image: debian:bookworm-slim
+
+    container_name: attacker_node
+
+    tty: true
+    stdin_open: true
+
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+
+    networks:
+      redteam_net:
+        ipv4_address: 10.50.30.99
+
+    command: >
+      sh -c "
+      apt-get update &&
+      apt-get install -y
+      iproute2
+      netcat-openbsd
+      nmap
+      tcpdump
+      iputils-ping
+      python3 &&
+      ip route replace 10.50.10.0/24 via 10.50.30.254 &&
+      tail -f /dev/null
+      "
+
+    depends_on:
+      - phasmida_firewall
+
+    restart: unless-stopped
+
+
+# ==========================================================
+# REDES SEGMENTADAS
+# ==========================================================
+networks:
+
+  # Zona OT: Core, generador NMEA, IDS y dashboard interno
+  ot_net:
+    name: phasmida_ot_net
+    driver: bridge
+    internal: true
+
+    ipam:
+      config:
+        - subnet: 10.50.10.0/24
+
+
+  # IDMZ: reverse proxy NGINX
+  dmz_net:
+    name: phasmida_dmz_net
+    driver: bridge
+
+    ipam:
+      config:
+        - subnet: 10.50.20.0/24
+
+
+  # Zona Red Team
+  redteam_net:
+    name: phasmida_redteam_net
+    driver: bridge
+
+    ipam:
+      config:
+        - subnet: 10.50.30.0/24
