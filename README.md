@@ -102,5 +102,7 @@ This project is licensed under the MIT License.
 ## 👤 Author
 
 **Alejandro Bermejo Jimeno**
-
-Thesis Project - MSc in Telecommunications Engineering - Universidad de Alicante (UA)
+🇪🇸TFM - Máster Universitario en Ingeniería de Telecomunicación - Universidad de Alicante (UA)
+🇬🇧Thesis Project - MSc in Telecommunications Engineering - Universidad de Alicante (UA)
+🇪🇸TFM - Máster Universitario en Industria Conectada - Universidad Nacional de Educación a Distancia (UNED)
+🇬🇧Thesis Project - MSc in Connected Industry - Universidad Nacional de Educación a Distancia (UNED)
