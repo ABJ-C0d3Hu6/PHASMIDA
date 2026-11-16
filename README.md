@@ -8,7 +8,7 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-FF6C6C?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io)
 [![Kali Linux](https://img.shields.io/badge/Kali_Linux-6A0DAD?style=for-the-badge&logo=kalilinux&logoColor=white)](https://www.kali.org)
 [![NMEA](https://img.shields.io/badge/NMEA-0078D4?style=for-the-badge&logo=nmea&logoColor=white)](https://www.nmea.org)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+[![License](https://img.shields.io/badge/License-PolyForm_Noncommercial_1.0.0-00843D?style=for-the-badge)](https://polyformproject.org/licenses/noncommercial/1.0.0)
 ![Status](https://img.shields.io/badge/Status-In_Development-blue?style=for-the-badge)
 
 ---
