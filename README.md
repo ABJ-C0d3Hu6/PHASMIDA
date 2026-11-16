@@ -95,7 +95,7 @@ The complete Master's Thesis documentation can be found in the `docs` folder.
 
 ## ⚖️ License
 
-This project is licensed under the MIT License.
+This project is licensed under the PolyForm Noncommercial License 1.0.0.
 
 ---
 
